@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+
 import TaskInput from './components/TaskInput.js';
+import Timer from './components/timer/Timer.js';
 
 function Task(props) {
   return <h1>{props.aTask}</h1>
@@ -35,6 +37,7 @@ class App extends Component {
     return (
       <div className="App">
         <Task aTask={this.state.aTask} />
+        <Timer />
         <TaskInput setTaskValue={this.setTaskValue} setTask={this.setTask} />
       </div>
     );
