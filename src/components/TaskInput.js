@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 
 class TaskInput extends Component {
+
   render() {
     return (
-      <input></input>
-      <button onClick={this.props.setTask}>test</button>
+      <div>
+        <input onChange={this.props.setTaskValue}></input>
+        <button onClick={this.props.setTask}>+</button>
+      </div>
     );
   }
 }

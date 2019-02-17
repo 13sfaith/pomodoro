@@ -12,14 +12,22 @@ class App extends Component {
     super(props);
     this.state = {
       aTask: "Finish the UI",
+      inTask: "",
     }
 
     this.setTask = this.setTask.bind(this);
+    this.setTaskValue = this.setTaskValue.bind(this);
   }
 
   setTask(){
     this.setState({
-      aTask: 'fuck you'
+      aTask: this.state.inTask
+    });
+  }
+
+  setTaskValue(event){
+    this.setState({
+      inTask: event.target.value
     });
   }
 
@@ -27,7 +35,7 @@ class App extends Component {
     return (
       <div className="App">
         <Task aTask={this.state.aTask} />
-        <TaskInput setTask={this.setTask} />
+        <TaskInput setTaskValue={this.setTaskValue} setTask={this.setTask} />
       </div>
     );
   }
