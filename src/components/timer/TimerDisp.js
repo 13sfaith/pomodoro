@@ -1,13 +1,39 @@
 import React, { Component } from 'react';
 
+import './TimerDisp.css';
+
+var ProgressBar = require('progressbar.js');
+
 class TimerDisp extends Component {
 
+  constructor(props){
+    super(props);
+
+    this.progressBar = null;
+  }
+
+  componentDidMount() {
+    this.progressBar = new ProgressBar.SemiCircle('#graph');
+
+    this.progressBar.animate(1);
+
+    this.progressBar.setText(this.props.minutes + ":" + this.props.seconds);
+  }
+
+  componentDidUpdate(){
+    if (this.props.rate != null){
+      this.progressBar.animate(this.props.rate);
+    }
+
+    this.progressBar.setText(this.props.minutes + ":" + this.props.seconds);
+  }
+
   render() {
-    
+
 
     return(
-      <div>
-        <p>{this.props.minutes}:{this.props.seconds}</p>
+      <div className="TimerDisp">
+        <div id="graph"></div>
       </div>
     );
   }

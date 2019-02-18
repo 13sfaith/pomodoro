@@ -6,7 +6,7 @@ import TaskInput from './components/TaskInput.js';
 import Timer from './components/timer/Timer.js';
 
 function Task(props) {
-  return <h1>{props.aTask}</h1>
+  return <p>{props.aTask}</p>
 }
 
 class App extends Component {
@@ -36,7 +36,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Task aTask={this.state.aTask} />
+        <div id="taskContain">
+          <Task aTask={this.state.aTask} />
+        </div>
         <Timer />
         <TaskInput setTaskValue={this.setTaskValue} setTask={this.setTask} />
       </div>

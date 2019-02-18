@@ -5,7 +5,7 @@ class TaskInput extends Component {
   render() {
     return (
       <div>
-        <input onChange={this.props.setTaskValue}></input>
+        <input placeholder="Enter Task" onChange={this.props.setTaskValue}></input>
         <button onClick={this.props.setTask}>+</button>
       </div>
     );
