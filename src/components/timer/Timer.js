@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import TimerDisp from './TimerDisp.js';
 import TimerInput from './TimerInput.js';
 
+import './Timer.css';
 
 class Timer extends Component {
   constructor(props){
@@ -11,7 +12,7 @@ class Timer extends Component {
     this.state = {
       time: 25,
       sec: "00",
-      rate: 0,
+      rate: 1,
     }
 
     this.intervalHandle = null;
@@ -61,11 +62,13 @@ class Timer extends Component {
   }
 
   reset(){
+    clearInterval(this.intervalHandle);
     this.secondsRemaining = null;
     this.startingSeconds = null;
     this.setState({
       time: 25,
-      sec: "00"
+      sec: "00",
+      rate: 1
     });
   }
 

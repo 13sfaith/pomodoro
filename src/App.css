@@ -9,3 +9,7 @@
 #taskContain {
   height: 50px;
 }
+
+button {
+  border: none;
+}
