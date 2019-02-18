@@ -1,0 +1,19 @@
+.TaskList{
+  overflow: auto;
+  height: 400px;
+}
+
+.offset{
+  background-color: #D8C3A5;
+}
+
+.list {
+  margin: auto;
+  width: 60vw;
+  height: 40px;
+  font-size: 20px;
+  line-height: 40px;
+  align-self: center;
+  justify-self: center;
+
+}

@@ -4,6 +4,7 @@ import './App.css';
 
 import TaskInput from './components/TaskInput.js';
 import TaskList from './components/TaskList.js';
+import Task from './components/Task.js';
 import Timer from './components/timer/Timer.js';
 
 function TaskHeader(props) {
@@ -16,21 +17,33 @@ class App extends Component {
     this.state = {
       aTask: "Finish the UI",
       inTask: "",
+      taskList: [],
     }
 
     this.setTask = this.setTask.bind(this);
     this.setTaskValue = this.setTaskValue.bind(this);
+    this.getTaskValue = this.getTaskValue.bind(this);
   }
 
   setTask(){
-    this.setState({
-      aTask: this.state.inTask
-    });
+    this.setState( prevState => ({
+      aTask: this.state.inTask,
+      taskList: [this.state.inTask, ...prevState.taskList]
+    }));
+
+    console.log(this.state.taskList);
   }
 
   setTaskValue(event){
     this.setState({
-      inTask: event.target.value
+      inTask: event.target.value,
+    });
+  }
+
+  getTaskValue(event){
+
+    this.setState({
+      aTask: this.state.taskList[event.target.getAttribute('key-get')],
     });
   }
 
@@ -42,7 +55,7 @@ class App extends Component {
         </div>
         <Timer />
         <TaskInput setTaskValue={this.setTaskValue} setTask={this.setTask} />
-        <TaskList />
+        <TaskList getTaskValue={this.getTaskValue} taskList={this.state.taskList} />
       </div>
     );
   }

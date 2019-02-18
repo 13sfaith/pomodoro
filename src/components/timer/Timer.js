@@ -78,7 +78,9 @@ class Timer extends Component {
       });
     }
 
-    this.state.isRunning = !this.state.isRunning;
+    this.setState({
+      isRunning: !this.state.isRunning
+    });
   }
 
   reset(){
