@@ -1,4 +1,9 @@
 .tIn {
-  width: 50px;
-  background-color: #f44336;
+  width: 100px;
+  height: 50px;
+  font-size: 30px;
+  background-color: #E98074;
+  margin-right: 5px;
+  text-align: center;
+
 }

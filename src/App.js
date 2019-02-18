@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import './App.css';
 
 import TaskInput from './components/TaskInput.js';
+import TaskList from './components/TaskList.js';
 import Timer from './components/timer/Timer.js';
 
-function Task(props) {
-  return <p>{props.aTask}</p>
+function TaskHeader(props) {
+  return <p id="heading">{props.aTask}</p>
 }
 
 class App extends Component {
@@ -37,10 +38,11 @@ class App extends Component {
     return (
       <div className="App">
         <div id="taskContain">
-          <Task aTask={this.state.aTask} />
+          <TaskHeader aTask={this.state.aTask} />
         </div>
         <Timer />
         <TaskInput setTaskValue={this.setTaskValue} setTask={this.setTask} />
+        <TaskList />
       </div>
     );
   }

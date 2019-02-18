@@ -1,7 +1,11 @@
 .TimerDisp {
   align-self: center;
   justify-self: center;
-  width: 200px;
+  width: 400px;
   height: 200px;
   margin: auto;
+}
+
+.progressbar-text {
+  font-size: 80px;
 }

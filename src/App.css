@@ -3,7 +3,15 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 6fr 6fr;
+  grid-template-rows: 1fr 6fr 1fr 1fr;
+  background-color: #EAE7DC;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
 #taskContain {
@@ -12,4 +20,9 @@
 
 button {
   border: none;
+}
+
+#heading {
+  font-size: 45px;
+  color: #E85A4F;
 }

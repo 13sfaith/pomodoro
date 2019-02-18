@@ -13,6 +13,8 @@ class Timer extends Component {
       time: 25,
       sec: "00",
       rate: 1,
+      isRunning: false,
+      current: "Start"
     }
 
     this.intervalHandle = null;
@@ -20,11 +22,14 @@ class Timer extends Component {
     this.startingSeconds = null;
     this.startCountDown = this.startCountDown.bind(this);
     this.stopCountDown = this.stopCountDown.bind(this);
+    this.startStopToggle = this.startStopToggle.bind(this);
     this.tick = this.tick.bind(this);
     this.reset = this.reset.bind(this);
   }
 
   tick(){
+    this.secondsRemaining--;
+
     var min = Math.floor(this.secondsRemaining / 60);
     var secs = this.secondsRemaining - (min * 60);
 
@@ -44,8 +49,6 @@ class Timer extends Component {
       clearInterval(this.intervalHandle);
     }
 
-    this.secondsRemaining--;
-
   }
 
   startCountDown(){
@@ -55,10 +58,27 @@ class Timer extends Component {
       this.secondsRemaining = time * 60;
       this.startingSeconds = time * 60;
     }
+    this.tick();
   }
 
   stopCountDown(){
     clearInterval(this.intervalHandle);
+  }
+
+  startStopToggle(){
+    if (this.state.isRunning){
+      this.stopCountDown();
+      this.setState({
+        current: "Start"
+      });
+    } else {
+      this.startCountDown();
+      this.setState({
+        current: "Stop"
+      });
+    }
+
+    this.state.isRunning = !this.state.isRunning;
   }
 
   reset(){
@@ -68,7 +88,9 @@ class Timer extends Component {
     this.setState({
       time: 25,
       sec: "00",
-      rate: 1
+      rate: 1,
+      isRunning: false,
+      current: "Start"
     });
   }
 
@@ -76,8 +98,8 @@ class Timer extends Component {
     return(
       <div className="Timer">
         <TimerDisp rate={this.state.rate} minutes={this.state.time} seconds={this.state.sec}/>
-        <TimerInput startCD={this.startCountDown} stopCD={this.stopCountDown}
-        reset={this.reset}/>
+        <TimerInput current={this.state.current} startStop={this.startStopToggle}
+         reset={this.reset}/>
       </div>
     );
   }

@@ -1,10 +1,17 @@
 #taskIn {
   border: none;
-  border-bottom: 1px solid
+  border-bottom: 1px solid #D8C3A5;
+  width: 60vw;
+  height: 40px;
+  font-size: 25px;
+  background-color: #EAE7DC;
+  color: #8E8D8A;
 }
 
 #taskBu {
-  background-color: #333;
+  width: 20px;
+  height: 32px;
+  background-color: #D8C3A5;
   color: #fff;
   text-align: center;
 }
