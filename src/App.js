@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom'
 
 import './App.css';
 
 import TaskTimer from './components/taskTimer/TaskTimer.js';
+import BreakTimer from'./components/BreakTimer.js';
 import Menu from './components/Menu.js';
 
 
@@ -13,10 +15,13 @@ function TaskHeader(props) {
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Menu />
-        <TaskTimer />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Menu />
+          <Route path="/break" component={BreakTimer}/>
+          <Route path="/" component={TaskTimer}/>
+        </div>
+      </BrowserRouter>
     );
   }
 }
