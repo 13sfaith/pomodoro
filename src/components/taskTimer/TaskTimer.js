@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import TaskInput from './task/TaskInput.js';
 import TaskList from './task/TaskList.js';
 import Task from './task/Task.js';
-import Timer from './timer/Timer.js';
+import Timer from '../timer/Timer.js';
 
 function TaskHeader(props) {
   return <p id="heading">{props.aTask}</p>

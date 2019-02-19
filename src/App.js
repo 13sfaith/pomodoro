@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import './App.css';
 
 import TaskTimer from './components/taskTimer/TaskTimer.js';
-import BreakTimer from'./components/BreakTimer.js';
+import BreakTimer from'./components/breakTimer/BreakTimer.js';
 import Menu from './components/Menu.js';
 
 
@@ -19,7 +19,7 @@ class App extends Component {
         <div className="App">
           <Menu />
           <Route path="/break" component={BreakTimer}/>
-          <Route path="/" component={TaskTimer}/>
+          <Route path="/task" component={TaskTimer}/>
         </div>
       </BrowserRouter>
     );

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import TimerDisp from './TimerDisp.js';
 import TimerInput from './TimerInput.js';
+import TimerChange from './TimerChange.js';
 
 import './Timer.css';
 
@@ -14,6 +15,7 @@ class Timer extends Component {
       sec: "00",
       rate: 1,
       isRunning: false,
+      isShowing: false,
       current: "Start"
     }
 
@@ -25,6 +27,7 @@ class Timer extends Component {
     this.startStopToggle = this.startStopToggle.bind(this);
     this.tick = this.tick.bind(this);
     this.reset = this.reset.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   tick(){
@@ -96,10 +99,19 @@ class Timer extends Component {
     });
   }
 
+  toggleModal() {
+    this.setState({
+      isShowing: !this.state.isShowing,
+    });
+    console.log(this.state.isShowing);
+  }
+
   render(){
     return(
       <div className="Timer">
-        <TimerDisp rate={this.state.rate} minutes={this.state.time} seconds={this.state.sec}/>
+        {this.state.isShowing && <TimerChange toggleModal={this.toggleModal}/>}
+        {!this.state.isShowing &&
+          <TimerDisp toggleModal={this.toggleModal} rate={this.state.rate} minutes={this.state.time} seconds={this.state.sec}/>}
         <TimerInput current={this.state.current} startStop={this.startStopToggle}
          reset={this.reset}/>
       </div>
