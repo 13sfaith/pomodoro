@@ -25,8 +25,8 @@ class Menu extends Component {
   render(){
     return(
       <div className="Menu">
-        <MenuToggle toggle={this.toggleVisible} />
-        {this.state.isVisible && <MenuContainer />}
+        <MenuToggle isVisible={this.isVisible} toggle={this.toggleVisible} />
+        {this.state.isVisible && <MenuContainer toggle={this.toggleVisible} />}
       </div>
     );
   }

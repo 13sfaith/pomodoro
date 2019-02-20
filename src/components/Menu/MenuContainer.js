@@ -8,10 +8,10 @@ class MenuContainer extends Component {
       <div className="MenuContainer">
         <div className="Spacer"></div>
         <Link className="Li" to="/">
-          <div className="Link">Pomodelo</div>
+          <div onClick={this.props.toggle} className="Link">Pomodelo</div>
         </Link>
         <Link className="Li" to="/break">
-          <div className="Link">Break</div>
+          <div onClick={this.props.toggle} className="Link">Break</div>
         </Link>
       </div>
     );
