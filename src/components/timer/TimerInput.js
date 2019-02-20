@@ -1,3 +1,7 @@
+//Timer Input class
+//Purpose: reads user input to start/stop/reset Timer
+//mainly a ui component
+
 import React, { Component } from 'react';
 
 import './TimerInput.css';

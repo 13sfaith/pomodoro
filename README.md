@@ -1,6 +1,6 @@
-# Pomodoro Technique App
+# Pomodoro productivity and task management App
 
-## Purpose
+## What is this?
 \
  To create a Pomodoro productivity app implementing electron and react. Primarly used for schooling but good for starting any project.
 

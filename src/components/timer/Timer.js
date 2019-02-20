@@ -1,3 +1,6 @@
+//Class Timer
+//Purpose: manages Time and Timer components
+
 import React, { Component } from 'react';
 
 import TimerDisp from './TimerDisp.js';
@@ -32,10 +35,13 @@ class Timer extends Component {
     this.getTime = this.getTime.bind(this);
   }
 
+  //Method takes total seconds (computed at startCountDown())
+  //and every second ticks down and updates the time states
   tick(){
 
     this.secondsRemaining--;
 
+    //turns total seconds into seconds and minutes
     var min = Math.floor(this.secondsRemaining / 60);
     var secs = this.secondsRemaining - (min * 60);
 
@@ -45,17 +51,21 @@ class Timer extends Component {
       rate: this.secondsRemaining/this.startingSeconds,
     });
 
+    //adds leading zero (cosmetic)
     if (secs < 10){
       this.setState({
         sec: "0" + this.state.sec
       })
     }
 
+    //end case
     if(min === 0 & secs === 0){
       clearInterval(this.intervalHandle);
     }
   }
 
+  //countdown control methods
+  //called by TimerInput component
   startCountDown(){
     this.intervalHandle = setInterval(this.tick, 1000);
     let time = this.state.oTime;
@@ -70,6 +80,7 @@ class Timer extends Component {
     clearInterval(this.intervalHandle);
   }
 
+  //Switchs run state and corrects button text
   startStopToggle(){
     if (this.state.isRunning){
       this.stopCountDown();
@@ -101,6 +112,8 @@ class Timer extends Component {
     });
   }
 
+  //Time Change functions
+  //Called by TimerChange component
   toggleModal() {
     if(!this.state.isRunning){
       this.setState({
@@ -114,6 +127,7 @@ class Timer extends Component {
     this.setState({
       oTime: (event.target.id * 5),
       time: (event.target.id * 5),
+      //added to reset sec on display
       sec: "00",
     });
     this.secondsRemaining = null;

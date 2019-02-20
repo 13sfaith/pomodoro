@@ -1,3 +1,6 @@
+//Timer Display Class
+//I need to finish this note!
+
 import React, { Component } from 'react';
 
 import './TimerDisp.css';
