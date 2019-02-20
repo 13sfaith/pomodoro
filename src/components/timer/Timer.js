@@ -11,6 +11,7 @@ class Timer extends Component {
     super(props);
 
     this.state = {
+      oTime: 25,
       time: 25,
       sec: "00",
       rate: 1,
@@ -28,9 +29,11 @@ class Timer extends Component {
     this.tick = this.tick.bind(this);
     this.reset = this.reset.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.getTime = this.getTime.bind(this);
   }
 
   tick(){
+
     this.secondsRemaining--;
 
     var min = Math.floor(this.secondsRemaining / 60);
@@ -51,12 +54,11 @@ class Timer extends Component {
     if(min === 0 & secs === 0){
       clearInterval(this.intervalHandle);
     }
-
   }
 
   startCountDown(){
     this.intervalHandle = setInterval(this.tick, 1000);
-    let time = this.state.time;
+    let time = this.state.oTime;
     if (this.secondsRemaining == null){
       this.secondsRemaining = time * 60;
       this.startingSeconds = time * 60;
@@ -91,7 +93,7 @@ class Timer extends Component {
     this.secondsRemaining = null;
     this.startingSeconds = null;
     this.setState({
-      time: 25,
+      time: this.state.oTime,
       sec: "00",
       rate: 1,
       isRunning: false,
@@ -100,16 +102,32 @@ class Timer extends Component {
   }
 
   toggleModal() {
-    this.setState({
-      isShowing: !this.state.isShowing,
-    });
-    console.log(this.state.isShowing);
+    if(!this.state.isRunning){
+      this.setState({
+        isShowing: !this.state.isShowing,
+      });
+      console.log(this.state.isShowing);
+    }
   }
 
+  getTime(event){
+    this.setState({
+      oTime: (event.target.id * 5),
+      time: (event.target.id * 5),
+      sec: "00",
+    });
+    this.secondsRemaining = null;
+    this.toggleModal();
+  }
+
+
   render(){
+
+
+
     return(
       <div className="Timer">
-        {this.state.isShowing && <TimerChange toggleModal={this.toggleModal}/>}
+        {this.state.isShowing && <TimerChange time={this.state.time} getTime={this.getTime} toggleModal={this.toggleModal}/>}
         {!this.state.isShowing &&
           <TimerDisp toggleModal={this.toggleModal} rate={this.state.rate} minutes={this.state.time} seconds={this.state.sec}/>}
         <TimerInput current={this.state.current} startStop={this.startStopToggle}

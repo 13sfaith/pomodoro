@@ -33,7 +33,8 @@ class TimerDisp extends Component {
 
     return(
       <div className="TimerDisp">
-        <div onClick={this.props.toggleModal} id="graph"></div>
+        <div onClick={this.props.toggleModal} id="graph">
+        </div>
       </div>
     );
   }

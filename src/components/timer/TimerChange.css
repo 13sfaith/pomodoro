@@ -1,10 +1,20 @@
-.TimerChange {
+.TimerChange{
   position: fixed;
   display: grid;
   bottom: 0;
+  right: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #333;
+}
+
+.Background {
+  position: fixed;
+  display: grid;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #EAE7DC;
 }
 
 .Modal {
@@ -12,7 +22,34 @@
   margin: auto;
   align-self: center;
   justify-self: center;
-  width: 20vw;
+  width: 10vw;
   height: 60vh;
-  background-color: #fff;
+}
+
+.Options {
+  height: 30px;
+  width: 10vw;
+  text-align: center;
+  line-height: 30px;
+  margin-bottom: 5px;
+  background-color: #EAE7DC;
+}
+
+.Options:hover {
+  background-color: #D8C3A5;
+}
+
+.Select {
+  display: inline-block;
+  width: 10vw;
+  font-size: 40px;
+  overflow-y: hidden;
+  background-image: none;
+  border: none;
+  /* padding-bottom: 20px; */
+}
+
+
+.Select select {
+  display: none;
 }

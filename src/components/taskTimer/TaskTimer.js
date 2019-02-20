@@ -41,7 +41,6 @@ class TaskTimer extends Component {
   }
 
   getTaskValue(event){
-
     this.setState({
       aTask: this.state.taskList[event.target.getAttribute('key-get')],
     });
