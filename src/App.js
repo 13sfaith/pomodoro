@@ -19,7 +19,7 @@ class App extends Component {
         <div className="App">
           <Menu />
           <Route path="/break" component={BreakTimer}/>
-          <Route path="/task" component={TaskTimer}/>
+          <Route exact path="/" component={TaskTimer}/>
         </div>
       </BrowserRouter>
     );

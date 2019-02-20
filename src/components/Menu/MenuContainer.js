@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class MenuContainer extends Component {
 
@@ -6,7 +7,12 @@ class MenuContainer extends Component {
     return(
       <div className="MenuContainer">
         <div className="Spacer"></div>
-        <div className="Link">Link</div>
+        <Link className="Li" to="/">
+          <div className="Link">Pomodelo</div>
+        </Link>
+        <Link className="Li" to="/break">
+          <div className="Link">Break</div>
+        </Link>
       </div>
     );
   }

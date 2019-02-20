@@ -6,7 +6,7 @@ class TimerChange extends Component {
     return (
       <div onClick={this.props.toggleModal} className="TimerChange">
         <div className="Modal">
-          <p></p>
+
         </div>
       </div>
     )
