@@ -1,33 +1,64 @@
 # Pomodoro productivity and task management App
 
-## What is this?
+### What is this?
 \
- To create a Pomodoro productivity app implementing electron and react. Primarly used for schooling but good for starting any project.
+A productivity and task management app utilizing the pomodoro technique,
+front-end utilizing react.
 
-### Requirements
- Electron
- React
+## Table of Contents
+* [Installation](#Steps)
+* [Usage](#Usage)
+  * [Current Features](#Current-Features)
+  * [Planned Features](#Planned-Features)
+* [License](#License)
 
-### Needed features
+## Installation
 
- * Easy to use visualy pleasing timer
-   * Task and Break mode
- * Title with active task
- * Task list
+Copy the Repo and navigate inside
+
+install dependcies run:
+
+```
+npm install
+```
+run the development server:
+```
+npm start
+```
+server will run by default on ```http://localhost:3000```
+
+## Usage
+
+#### Current Features
+
+* Timer
+  * start/stop/reset buttons
+  * clicking on the timer, opens time set (beta)
+
+* Task mode
+  * Current task header
+  * use task bar to input new tasks
+  * basic task list added with new tasks
+    * click on the task to set it
+
+* Rest mode
+  * Take a timed break and return to do more tasks
+
+
+#### Planned features
+
+ * Task list (Improvments)
    * easy editing
    * completion check boxes
-   * selecting task sets active task
-
-### Extra features
- * Data visualtion
-   * total timer time
-   * break down data into calender view
-   * PURPOSE: who doesn't like data
+   * don't allow task to change during timer
+ * Data
+   * Data tab
+     * tasks completed
+     * total time working
  * Theming
+   * Allow for easy visual customization
+     * most likely a submenu
 
+## License
 
-### Steps
-  * Create UI prototype
-  * Create the respitory [x]
-  * set up electron & react environment [x]
-  * Create the dev steps!
+Employs the MIT open source license read ```./LISCENSE``` for more info
