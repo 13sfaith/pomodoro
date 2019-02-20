@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 
 import TaskInput from './task/TaskInput.js';
 import TaskList from './task/TaskList.js';
-import Task from './task/Task.js';
 import Timer from '../timer/Timer.js';
 
 function TaskHeader(props) {
@@ -23,6 +22,7 @@ class TaskTimer extends Component {
     this.setTask = this.setTask.bind(this);
     this.setTaskValue = this.setTaskValue.bind(this);
     this.getTaskValue = this.getTaskValue.bind(this);
+    this.endSig = this.endSig.bind(this);
   }
 
   setTask(){
@@ -46,13 +46,17 @@ class TaskTimer extends Component {
     });
   }
 
+  endSig() {
+    console.log('Timer finished');
+  }
+
   render() {
     return (
       <div className="App">
         <div id="taskContain">
           <TaskHeader aTask={this.state.aTask} />
         </div>
-        <Timer />
+        <Timer endSig={this.endSig}/>
         <TaskInput setTaskValue={this.setTaskValue} setTask={this.setTask} />
         <TaskList getTaskValue={this.getTaskValue} taskList={this.state.taskList} />
       </div>

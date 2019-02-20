@@ -61,6 +61,14 @@ class Timer extends Component {
     //end case
     if(min === 0 & secs === 0){
       clearInterval(this.intervalHandle);
+      this.sendEndSig();
+    }
+  }
+
+  //will call the parent manager if it wants to know
+  sendEndSig() {
+    if (this.props.endSig != null){
+      this.props.endSig();
     }
   }
 
@@ -119,7 +127,6 @@ class Timer extends Component {
       this.setState({
         isShowing: !this.state.isShowing,
       });
-      console.log(this.state.isShowing);
     }
   }
 

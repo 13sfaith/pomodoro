@@ -6,7 +6,7 @@ class BreakTimer extends Component {
   render() {
     return(
       <div>
-        <p>Nik</p>
+        <h1>Break Time!</h1>
         <Timer />
       </div>
     );

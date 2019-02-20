@@ -11,7 +11,7 @@ class TimerChange extends Component {
     let times = [];
     for (var i = 1; i <= 5; i++){
 
-      if(i * 5 == this.props.time){
+      if(i * 5 === this.props.time){
         times.push(<div onClick={this.props.getTime} id={i} className="Options" key={i}>{i * 5} Min</div>);
       } else {
         times.push(<div onClick={this.props.getTime} className="Options" id={i} key={i}>{i * 5} Min</div>);

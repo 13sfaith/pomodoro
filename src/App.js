@@ -7,11 +7,6 @@ import TaskTimer from './components/taskTimer/TaskTimer.js';
 import BreakTimer from'./components/breakTimer/BreakTimer.js';
 import Menu from './components/Menu.js';
 
-
-function TaskHeader(props) {
-  return <p id="heading">{props.aTask}</p>
-}
-
 class App extends Component {
   render() {
     return (
