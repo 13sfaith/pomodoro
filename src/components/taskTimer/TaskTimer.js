@@ -15,29 +15,19 @@ class TaskTimer extends Component {
     super(props);
     this.state = {
       aTask: "Finish the UI",
-      inTask: "",
       taskList: [],
     }
 
     this.setTask = this.setTask.bind(this);
-    this.setTaskValue = this.setTaskValue.bind(this);
     this.getTaskValue = this.getTaskValue.bind(this);
     this.endSig = this.endSig.bind(this);
   }
 
-  setTask(){
+  setTask(s){
     this.setState( prevState => ({
-      aTask: this.state.inTask,
-      taskList: [this.state.inTask, ...prevState.taskList]
+      aTask: s,
+      taskList: [s, ...prevState.taskList]
     }));
-
-    console.log(this.state.taskList);
-  }
-
-  setTaskValue(event){
-    this.setState({
-      inTask: event.target.value,
-    });
   }
 
   getTaskValue(event){
@@ -57,7 +47,7 @@ class TaskTimer extends Component {
           <TaskHeader aTask={this.state.aTask} />
         </div>
         <Timer endSig={this.endSig}/>
-        <TaskInput setTaskValue={this.setTaskValue} setTask={this.setTask} />
+        <TaskInput setTask={this.setTask} />
         <TaskList getTaskValue={this.getTaskValue} taskList={this.state.taskList} />
       </div>
     );
