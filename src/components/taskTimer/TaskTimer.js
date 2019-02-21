@@ -20,6 +20,7 @@ class TaskTimer extends Component {
 
     this.setTask = this.setTask.bind(this);
     this.removeTask = this.removeTask.bind(this);
+    this.editTask = this.editTask.bind(this);
     this.getTaskValue = this.getTaskValue.bind(this);
     this.endSig = this.endSig.bind(this);
   }
@@ -35,15 +36,22 @@ class TaskTimer extends Component {
     var tempList = this.state.taskList.filter(function(value, index){
       return index !== parseInt(i);
     });
-    console.log(tempList);
     this.setState( state => ({
       taskList: tempList,
     }));
     if (this.state.taskList.length === 1){
       this.setState( () => ({
-        aTask: "Please enter new task",
+        aTask: "Please enter a new task",
       }));
     }
+  }
+
+  editTask(index, tsk){
+    var tempList = this.state.taskList;
+    tempList[index] = tsk;
+    this.setState( () => ({
+      taskList: tempList,
+    }));
   }
 
   getTaskValue(e){
@@ -64,7 +72,7 @@ class TaskTimer extends Component {
         </div>
         <Timer endSig={this.endSig}/>
         <TaskInput setTask={this.setTask} />
-        <TaskList removeTask={this.removeTask} getTaskValue={this.getTaskValue} taskList={this.state.taskList} />
+        <TaskList editTask={this.editTask} removeTask={this.removeTask} getTaskValue={this.getTaskValue} taskList={this.state.taskList} />
       </div>
     );
   }

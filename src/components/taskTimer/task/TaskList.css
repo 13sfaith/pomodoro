@@ -1,6 +1,7 @@
 .TaskList{
   overflow: auto;
-  height: 400px;
+  height: 200px;
+  margin-bottom: 5vh;
 }
 
 .list {
@@ -36,4 +37,11 @@
 .task{
   text-align: center;
   flex-grow: 1;
+}
+
+.taskIn {
+  background-color: transparent;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #333;
 }
