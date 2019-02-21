@@ -26,6 +26,7 @@ class TaskList extends Component {
 
   editTask(event){
     let id = event.target.getAttribute('id-get');
+    
     this.setState( () => ({
       isShowing: parseInt(id),
     }));

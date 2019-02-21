@@ -1,7 +1,11 @@
+
 .TaskList{
   overflow: auto;
   height: 200px;
-  margin-bottom: 5vh;
+  width: 61vw;
+  margin: auto;
+  margin-bottom: 10vh;
+  align-self: center;
 }
 
 .list {
@@ -44,4 +48,5 @@
   text-align: center;
   border: none;
   border-bottom: 1px solid #333;
+  width: 90%;
 }
