@@ -17,3 +17,7 @@
   justify-self: center;
   border-bottom: 1px solid #EAE7DC;
 }
+
+.list:hover {
+  background-color: #c9ab81;
+}
