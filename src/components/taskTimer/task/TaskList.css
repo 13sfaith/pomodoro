@@ -1,13 +1,15 @@
+
 .TaskList{
   overflow: auto;
-  height: 400px;
-}
-
-.offset{
-  background-color: #D8C3A5;
+  height: 200px;
+  width: 61vw;
+  margin: auto;
+  margin-bottom: 10vh;
+  align-self: center;
 }
 
 .list {
+  background-color: #D8C3A5;
   margin: auto;
   width: 60vw;
   height: 40px;
@@ -15,5 +17,36 @@
   line-height: 40px;
   align-self: center;
   justify-self: center;
+  border-bottom: 1px solid #EAE7DC;
+}
 
+.list:hover {
+  background-color: #c9ab81;
+}
+
+.flexin{
+  display: flex;
+  justify-content: space-around;
+}
+
+.option{
+  width: 6vw;
+  height: 100%;
+}
+
+.option:hover{
+  background-color: #333;
+}
+
+.task{
+  text-align: center;
+  flex-grow: 1;
+}
+
+.taskIn {
+  background-color: transparent;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #333;
+  width: 90%;
 }

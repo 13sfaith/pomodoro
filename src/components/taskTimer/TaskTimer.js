@@ -15,35 +15,49 @@ class TaskTimer extends Component {
     super(props);
     this.state = {
       aTask: "Finish the UI",
-      inTask: "",
       taskList: [],
     }
 
     this.setTask = this.setTask.bind(this);
-    this.setTaskValue = this.setTaskValue.bind(this);
+    this.removeTask = this.removeTask.bind(this);
+    this.editTask = this.editTask.bind(this);
     this.getTaskValue = this.getTaskValue.bind(this);
     this.endSig = this.endSig.bind(this);
   }
 
-  setTask(){
+  setTask(s){
     this.setState( prevState => ({
-      aTask: this.state.inTask,
-      taskList: [this.state.inTask, ...prevState.taskList]
+      aTask: s,
+      taskList: [s, ...prevState.taskList]
     }));
-
-    console.log(this.state.taskList);
   }
 
-  setTaskValue(event){
-    this.setState({
-      inTask: event.target.value,
+  removeTask(i){
+    var tempList = this.state.taskList.filter(function(value, index){
+      return index !== parseInt(i);
     });
+    this.setState( state => ({
+      taskList: tempList,
+    }));
+    if (this.state.taskList.length === 1){
+      this.setState( () => ({
+        aTask: "Please enter a new task",
+      }));
+    }
   }
 
-  getTaskValue(event){
-    this.setState({
-      aTask: this.state.taskList[event.target.getAttribute('key-get')],
-    });
+  editTask(index, tsk){
+    var tempList = this.state.taskList;
+    tempList[index] = tsk;
+    this.setState( () => ({
+      taskList: tempList,
+    }));
+  }
+
+  getTaskValue(e){
+    this.setState( state => ({
+      aTask: state.taskList[e],
+    }));
   }
 
   endSig() {
@@ -57,8 +71,8 @@ class TaskTimer extends Component {
           <TaskHeader aTask={this.state.aTask} />
         </div>
         <Timer endSig={this.endSig}/>
-        <TaskInput setTaskValue={this.setTaskValue} setTask={this.setTask} />
-        <TaskList getTaskValue={this.getTaskValue} taskList={this.state.taskList} />
+        <TaskInput setTask={this.setTask} />
+        <TaskList editTask={this.editTask} removeTask={this.removeTask} getTaskValue={this.getTaskValue} taskList={this.state.taskList} />
       </div>
     );
   }
