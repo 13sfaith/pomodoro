@@ -1,10 +1,14 @@
 .TimerChange{
   position: fixed;
   display: grid;
+  grid-template-areas: 'a b c'
+                       'd e f'
+                       'g h i';
   bottom: 0;
   right: 0;
   width: 100vw;
   height: 100vh;
+
 }
 
 .Background {
@@ -15,15 +19,17 @@
   width: 100vw;
   height: 100vh;
   background-color: #EAE7DC;
+  justify-content: center;
 }
 
 .Modal {
-  position: fixed;
+  z-index: 10;
+  grid-area: e;
   margin: auto;
   align-self: center;
   justify-self: center;
   width: 10vw;
-  height: 60vh;
+  height: 30vh;
 }
 
 .Options {
