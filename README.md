@@ -16,16 +16,15 @@ front-end utilizing react.
 
 Copy the Repo and navigate inside
 
-install dependcies run:
+install dependencies run:
 
 ```
 npm install
 ```
-run the development server:
+run the development server and open in native environment:
 ```
-npm start
+npm run app
 ```
-server will run by default on ```http://localhost:3000```
 
 ## Usage
 

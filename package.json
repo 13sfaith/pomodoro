@@ -15,7 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron": "electron ."
+    "electron": "electron .",
+    "app": "BROWSER=none react-scripts start & electron ."
   },
   "eslintConfig": {
     "extends": "react-app"
